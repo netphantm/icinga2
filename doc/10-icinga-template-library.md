@@ -200,7 +200,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name                    | Description
 ------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-apt_extra_opts          | **Optional.** Read options from an ini file.
+apt_extra_opts          | **Optional.** Read extra plugin options from an ini file.
 apt_upgrade             | **Optional.** [Default] Perform an upgrade. If an optional OPTS argument is provided, apt-get will be run with these command line options instead of the default.
 apt_dist_upgrade        | **Optional.** Perform a dist-upgrade instead of normal upgrade. Like with -U OPTS can be provided to override the default options.
 apt_include             | **Optional.** Include only packages matching REGEXP. Can be specified multiple times the values will be combined together.
@@ -236,6 +236,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name               | Description
 ----------------   | --------------
 by_ssh_address     | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+by_ssh_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 by_ssh_port        | **Optional.** The SSH port. Defaults to 22.
 by_ssh_command     | **Required.** The command that should be executed. Can be an array if multiple arguments should be passed to `check_by_ssh`.
 by_ssh_arguments   | **Optional.** A dictionary with arguments for the command. This works exactly like the 'arguments' dictionary for ordinary CheckCommands.
@@ -261,6 +262,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name               | Description
 -------------------|--------------
 clamd_address        | **Required.** The host's address or unix socket (must be an absolute path).
+clamd_extra_opts     | **Optional.** Read extra plugin options from an ini file.
 clamd_port           | **Optional.** Port number (default: none).
 clamd_expect         | **Optional.** String to expect in server response. Multiple strings must be defined as array.
 clamd_all            | **Optional.** All expect strings need to occur in server response. Defaults to false.
@@ -291,6 +293,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name            | Description
 ----------------|--------------
+dhcp_extra_opts | **Optional.** Read extra plugin options from an ini file.
 dhcp_serverip   | **Optional.** The IP address of the DHCP server which we should get a response from.
 dhcp_requestedip| **Optional.** The IP address which we should be offered by a DHCP server.
 dhcp_timeout    | **Optional.** The timeout in seconds.
@@ -309,6 +312,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                 | Description
 ---------------------|--------------
 dig_server           | **Optional.** The DNS server to query. Defaults to "127.0.0.1".
+dig_extra_opts       | **Optional.** Read extra plugin options from an ini file.
 dig_port	         | **Optional.** Port number (default: 53).
 dig_lookup           | **Required.** The address that should be looked up.
 dig_record_type      | **Optional.** Record type to lookup (default: A).
@@ -332,6 +336,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name            	| Description
 --------------------|------------------------
+disk\_extra\_opts       | **Optional.** Read extra plugin options from an ini file.
 disk\_wfree      	| **Optional.** The free space warning threshold. Defaults to "20%". If the percent sign is omitted, units from `disk_units` are used.
 disk\_cfree      	| **Optional.** The free space critical threshold. Defaults to "10%". If the percent sign is omitted, units from `disk_units` are used.
 disk\_inode\_wfree 	| **Optional.** The free inode warning threshold.
@@ -391,6 +396,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                 | Description
 ---------------------|--------------
 dns_lookup           | **Optional.** The hostname or IP to query the DNS for. Defaults to "$host_name$".
+dns_extra_opts       | **Optional.** Read extra plugin options from an ini file.
 dns_server           | **Optional.** The DNS server to query. Defaults to the server configured in the OS.
 dns_query_type       | **Optional.** The DNS record query type where TYPE =(A, AAAA, SRV, TXT, MX, ANY). The default query type is 'A' (IPv4 host entry)
 dns_expected_answers | **Optional.** The answer(s) to look for. A hostname must end with a dot. Multiple answers must be defined as array.
@@ -444,6 +450,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name            | Description
 ----------------|--------------
+fping_extra_opts | **Optional.** Read extra plugin options from an ini file.
 fping_address   | **Optional.** The host's IPv4 address. Defaults to "$address$".
 fping_wrta      | **Optional.** The RTA warning threshold in milliseconds. Defaults to 100.
 fping_wpl       | **Optional.** The packet loss warning threshold in %. Defaults to 5.
@@ -469,6 +476,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name            | Description
 ----------------|--------------
+fping_extra_opts | **Optional.** Read extra plugin options from an ini file.
 fping_address   | **Optional.** The host's IPv6 address. Defaults to "$address6$".
 fping_wrta      | **Optional.** The RTA warning threshold in milliseconds. Defaults to 100.
 fping_wpl       | **Optional.** The packet loss warning threshold in %. Defaults to 5.
@@ -492,6 +500,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name               | Description
 -------------------|--------------
 ftp_address        | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ftp_extra_opts     | **Optional.** Read extra plugin options from an ini file.
 ftp_port           | **Optional.** The FTP port number.
 ftp_expect         | **Optional.** String to expect in server response. Multiple strings must be defined as array.
 ftp_all            | **Optional.** All expect strings need to occur in server response. Defaults to false.
@@ -525,6 +534,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name               | Description
 -------------------|-------------------
+game_extra_opts    | **Optional.** Read extra plugin options from an ini file.
 game_game          | **Required.** Name of the game.
 game_ipaddress     | **Required.** Ipaddress of the game server to query.
 game_timeout       | **Optional.** Seconds before connection times out. Defaults to 10.
@@ -547,6 +557,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ping_address    | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ping_extra_opts | **Optional.** Read extra plugin options from an ini file.
 ping_wrta       | **Optional.** The RTA warning threshold in milliseconds. Defaults to 3000.
 ping_wpl        | **Optional.** The packet loss warning threshold in %. Defaults to 80.
 ping_crta       | **Optional.** The RTA critical threshold in milliseconds. Defaults to 5000.
@@ -565,6 +576,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ping_address    | **Optional.** The host's IPv4 address. Defaults to "$address$".
+ping_extra_opts | **Optional.** Read extra plugin options from an ini file.
 ping_wrta       | **Optional.** The RTA warning threshold in milliseconds. Defaults to 3000.
 ping_wpl        | **Optional.** The packet loss warning threshold in %. Defaults to 80.
 ping_crta       | **Optional.** The RTA critical threshold in milliseconds. Defaults to 5000.
@@ -583,6 +595,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ping_address    | **Optional.** The host's IPv6 address. Defaults to "$address6$".
+ping_extra_opts | **Optional.** Read extra plugin options from an ini file.
 ping_wrta       | **Optional.** The RTA warning threshold in milliseconds. Defaults to 3000.
 ping_wpl        | **Optional.** The packet loss warning threshold in %. Defaults to 80.
 ping_crta       | **Optional.** The RTA critical threshold in milliseconds. Defaults to 5000.
@@ -602,6 +615,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 hpjd_address    | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+hpjd_extra_opts | **Optional.** Read extra plugin options from an ini file.
 hpjd_port       | **Optional.** The host's SNMP port. Defaults to 161.
 hpjd_community  | **Optional.** The SNMP community. Defaults  to "public".
 
@@ -620,6 +634,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                             | Description
 ---------------------------------|---------------------------------
 http_address                     | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+http_extra_opts                  | **Optional.** Read extra plugin options from an ini file.
 http_vhost                       | **Optional.** The virtual host that should be sent in the "Host" header.
 http_uri                         | **Optional.** The request URI for GET or POST. Defaults to `/`.
 http_port                        | **Optional.** The TCP port. Defaults to 80 when not using SSL, 443 otherwise.
@@ -679,6 +694,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 icmp_address    | **Optional.** The host's address. This can either be a single address or an array of addresses. Defaults to "$address$".
+icmp_extra_opts | **Optional.** Read extra plugin options from an ini file.
 icmp_wrta       | **Optional.** The RTA warning threshold in milliseconds. Defaults to 100.
 icmp_wpl        | **Optional.** The packet loss warning threshold in %. Defaults to 5.
 icmp_crta       | **Optional.** The RTA critical threshold in milliseconds. Defaults to 200.
@@ -703,6 +719,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                  | Description
 ----------------------|--------------
 imap_address          | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+imap_extra_opts       | **Optional.** Read extra plugin options from an ini file.
 imap_port             | **Optional.** The port that should be checked. Defaults to 143.
 imap_escape           | **Optional.** Can use \\n, \\r, \\t or \\ in send or quit string. Must come before send or quit option. Default: nothing added to send, \\r\\n added to end of quit.
 imap_send             | **Optional.** String to send to the server.
@@ -736,6 +753,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            	| Description
 ------------------------|--------------
 ldap_address    	| **Optional.** Host name, IP Address, or unix socket (must be an absolute path). Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ldap_extra_opts   | **Optional.** Read extra plugin options from an ini file.
 ldap_port       	| **Optional.** Port number. Defaults to 389.
 ldap_attr		| **Optional.** LDAP attribute to search for (default: "(objectclass=*)")
 ldap_base       	| **Required.** LDAP base (eg. ou=myunit,o=myorg,c=at).
@@ -761,6 +779,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name            | Description
 ----------------|--------------
+load_extra_opts | **Optional.** Read extra plugin options from an ini file.
 load_wload1     | **Optional.** The 1-minute warning threshold. Defaults to 5.
 load_wload5     | **Optional.** The 5-minute warning threshold. Defaults to 4.
 load_wload15    | **Optional.** The 15-minute warning threshold. Defaults to 3.
@@ -796,6 +815,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name			| Description
 ------------------------|---------------------------------------------------------------
 mysql_hostname		| **Optional.** Host name, IP Address, or unix socket (must be an absolute path).
+mysql_extra_opts | **Optional.** Read extra plugin options from an ini file.
 mysql_port		| **Optional.** Port number (default: 3306).
 mysql_socket		| **Optional.** Use the specified socket (has no effect if `mysql_hostname` is used).
 mysql_ignore_auth	| **Optional.** Ignore authentication failure and check for mysql connectivity only.
@@ -829,6 +849,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                    | Description
 ------------------------|---------------------------------------------------------------
 mysql_query_hostname    | **Optional.** Host name, IP Address, or unix socket (must be an absolute path).
+mysql_query_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 mysql_query_port        | **Optional.** Port number (default: 3306).
 mysql_query_database    | **Optional.** Check database with indicated name.
 mysql_query_file        | **Optional.** Read from the specified client options file.
@@ -892,6 +913,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 nscp_address    | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+nscp_extra_opts | **Optional.** Read extra plugin options from an ini file.
 nscp_port       | **Optional.** The NSClient++ port. Defaults to 12489.
 nscp_password   | **Optional.** The NSClient++ password.
 nscp_variable   | **Required.** The variable that should be checked.
@@ -914,6 +936,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ntp_address     | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ntp_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 ntp_port        | **Optional.** Port number (default: 123).
 ntp_quiet       | **Optional.** Returns UNKNOWN instead of CRITICAL if offset cannot be found.
 ntp_warning     | **Optional.** Offset to result in warning status (seconds).
@@ -936,6 +959,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ntp_address     | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ntp_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 ntp_port        | **Optional.** The port to use. Default to 123.
 ntp_quiet       | **Optional.** Returns UNKNOWN instead of CRITICAL or WARNING if server isn't synchronized.
 ntp_warning     | **Optional.** Offset to result in warning status (seconds).
@@ -964,6 +988,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name			| Description
 ------------------------|---------------------------------------------------------------
 pgsql_hostname		| **Optional.** Host name, IP Address, or unix socket (must be an absolute path).
+pgsql_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 pgsql_port		| **Optional.** Port number (default: 5432).
 pgsql_database		| **Optional.** Database to check (default: template1).
 pgsql_username		| **Optional.** Login name of user.
@@ -990,6 +1015,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ping_address    | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ping_extra_opts | **Optional.** Read extra plugin options from an ini file.
 ping_wrta       | **Optional.** The RTA warning threshold in milliseconds. Defaults to 100.
 ping_wpl        | **Optional.** The packet loss warning threshold in %. Defaults to 5.
 ping_crta       | **Optional.** The RTA critical threshold in milliseconds. Defaults to 200.
@@ -1012,6 +1038,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ping_address    | **Optional.** The host's IPv4 address. Defaults to "$address$".
+ping_extra_opts | **Optional.** Read extra plugin options from an ini file.
 ping_wrta       | **Optional.** The RTA warning threshold in milliseconds. Defaults to 100.
 ping_wpl        | **Optional.** The packet loss warning threshold in %. Defaults to 5.
 ping_crta       | **Optional.** The RTA critical threshold in milliseconds. Defaults to 200.
@@ -1033,6 +1060,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ping_address    | **Optional.** The host's IPv6 address. Defaults to "$address6$".
+ping_extra_opts | **Optional.** Read extra plugin options from an ini file.
 ping_wrta       | **Optional.** The RTA warning threshold in milliseconds. Defaults to 100.
 ping_wpl        | **Optional.** The packet loss warning threshold in %. Defaults to 5.
 ping_crta       | **Optional.** The RTA critical threshold in milliseconds. Defaults to 200.
@@ -1051,6 +1079,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                 | Description
 ---------------------|--------------
 pop_address          | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+pop_extra_opts       | **Optional.** Read extra plugin options from an ini file.
 pop_port             | **Optional.** The port that should be checked. Defaults to 110.
 pop_escape           | **Optional.** Can use \\n, \\r, \\t or \\ in send or quit string. Must come before send or quit option. Default: nothing added to send, \\r\\n added to end of quit.
 pop_send             | **Optional.** String to send to the server.
@@ -1082,6 +1111,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name                 | Description
 ---------------------|--------------
+procs_extra_opts     | **Optional.** Read extra plugin options from an ini file.
 procs_warning        | **Optional.** The process count warning threshold. Defaults to 250.
 procs_critical       | **Optional.** The process count critical threshold. Defaults to 400.
 procs_metric         | **Optional.** Check thresholds against metric.
@@ -1117,6 +1147,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name               | Description
 -------------------|--------------
 radius_address     | **Optional.** The radius server's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+radius_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 radius_config_file | **Required.** The radius configuration file.
 radius_username    | **Required.** The radius username to test.
 radius_password    | **Required.** The radius password to test.
@@ -1154,6 +1185,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                   | Description
 -----------------------|--------------
 simap_address          | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+simap_extra_opts       | **Optional.** Read extra plugin options from an ini file.
 simap_port             | **Optional.** The port that should be checked. Defaults to 993.
 simap_escape           | **Optional.** Can use \\n, \\r, \\t or \\ in send or quit string. Must come before send or quit option. Default: nothing added to send, \\r\\n added to end of quit.
 simap_send             | **Optional.** String to send to the server.
@@ -1182,6 +1214,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name            | Description
 ----------------|--------------
+smart_extra_opts | **Optional.** Read extra plugin options from an ini file.
 smart_device    | **Required.** The name of a local hard drive to monitor.
 
 
@@ -1195,6 +1228,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                  | Description
 ----------------------|--------------
 smtp_address          | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+smtp_extra_opts       | **Optional.** Read extra plugin options from an ini file.
 smtp_port             | **Optional.** The port that should be checked. Defaults to 25.
 smtp_mail_from        | **Optional.** Test a MAIL FROM command with the given email address.
 smtp_expect           | **Optional.** String to expect in first line of server response (default: '220').
@@ -1226,6 +1260,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                | Description
 --------------------|--------------
 snmp_address        | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+snmp_extra_opts     | **Optional.** Read extra plugin options from an ini file.
 snmp_oid            | **Required.** The SNMP OID.
 snmp_community      | **Optional.** The SNMP community. Defaults to "public".
 snmp_port           | **Optional.** The SNMP port. Defaults to "161".
@@ -1258,6 +1293,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                 | Description
 ---------------------|--------------
 snmpv3_address       | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+snmpv3_extra_opts    | **Optional.** Read extra plugin options from an ini file.
 snmpv3_getnext       | **Optional.** Use SNMP GETNEXT instead of SNMP GET.
 snmpv3_seclevel      | **Optional.** The security level. Defaults to authPriv.
 snmpv3_auth_alg      | **Optional.** The authentication algorithm. Defaults to SHA.
@@ -1289,6 +1325,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 snmp_address    | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+snmp_extra_opts | **Optional.** Read extra plugin options from an ini file.
 snmp_oid        | **Optional.** The SNMP OID. Defaults to "1.3.6.1.2.1.1.3.0".
 snmp_community  | **Optional.** The SNMP community. Defaults to "public".
 
@@ -1303,6 +1340,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                  | Description
 ----------------------|--------------
 spop_address          | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+spop_extra_opts       | **Optional.** Read extra plugin options from an ini file.
 spop_port             | **Optional.** The port that should be checked. Defaults to 995.
 spop_escape           | **Optional.** Can use \\n, \\r, \\t or \\ in send or quit string. Must come before send or quit option. Default: nothing added to send, \\r\\n added to end of quit.
 spop_send             | **Optional.** String to send to the server.
@@ -1333,6 +1371,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ssh_address     | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ssh_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 ssh_port        | **Optional.** The port that should be checked. Defaults to 22.
 ssh_timeout     | **Optional.** Seconds before connection times out. Defaults to 10.
 ssh_ipv4        | **Optional.** Use IPv4 connection. Defaults to false.
@@ -1349,6 +1388,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                          | Description
 ------------------------------|--------------
 ssl_address                   | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ssl_extra_opts                | **Optional.** Read extra plugin options from an ini file.
 ssl_port                      | **Optional.** The port that should be checked. Defaults to 443.
 ssl_timeout                   | **Optional.** Timeout in seconds for the connect and handshake. The plugin default is 10 seconds.
 ssl_cert_valid_days_warn      | **Optional.** Warning threshold for days before the certificate will expire. When used, the default for ssl_cert_valid_days_critical is 0.
@@ -1366,6 +1406,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name                   | Description
 -----------------------|--------------
 ssmtp_address          | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ssmtp_extra_opts       | **Optional.** Read extra plugin options from an ini file.
 ssmtp_port             | **Optional.** The port that should be checked. Defaults to 465.
 ssmtp_escape           | **Optional.** Can use \\n, \\r, \\t or \\ in send or quit string. Must come before send or quit option. Default: nothing added to send, \\r\\n added to end of quit.
 ssmtp_send             | **Optional.** String to send to the server.
@@ -1395,6 +1436,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name            | Description
 ----------------|--------------
+swap_extra_opts | **Optional.** Read extra plugin options from an ini file.
 swap_wfree      | **Optional.** The free swap space warning threshold in % (enable `swap_integer` for number values). Defaults to `50%`.
 swap_cfree      | **Optional.** The free swap space critical threshold in % (enable `swap_integer` for number values). Defaults to `25%`.
 swap_integer    | **Optional.** Specifies whether the thresholds are passed as number or percent value. Defaults to false (percent values).
@@ -1412,6 +1454,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 tcp_address     | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+tcp_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 tcp_port        | **Required.** The port that should be checked.
 tcp_expect      | **Optional.** String to expect in server response. Multiple strings must be defined as array.
 tcp_all         | **Optional.** All expect strings need to occur in server response. Defaults to false.
@@ -1443,6 +1486,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 udp_address     | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+udp_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 udp_port        | **Required.** The port that should be checked.
 udp_send        | **Required.** The payload to send in the UDP datagram.
 udp_expect      | **Required.** The payload to expect in the response datagram.
@@ -1462,6 +1506,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 Name            | Description
 ----------------|--------------
 ups_address     | **Required.** The address of the host running upsd. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ups_extra_opts  | **Optional.** Read extra plugin options from an ini file.
 ups_name        | **Required.** The UPS name. Defaults to `ups`.
 ups_port        | **Optional.** The port to which to connect. Defaults to 3493.
 ups_variable    | **Optional.** The variable to monitor. Must be one of LINE, TEMP, BATTPCT or LOADPCT. If this is not set, the check only relies on the value of `ups.status`.
@@ -1481,6 +1526,7 @@ Custom variables passed as [command parameters](03-monitoring-basics.md#command-
 
 Name            | Description
 ----------------|--------------
+users_extra_opts | **Optional.** Read extra plugin options from an ini file.
 users_wgreater  | **Optional.** The user count warning threshold. Defaults to 20.
 users_cgreater  | **Optional.** The user count critical threshold. Defaults to 50.
 
